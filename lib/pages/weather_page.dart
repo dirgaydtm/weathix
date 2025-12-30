@@ -44,14 +44,18 @@ class _WeatherPageState extends State<WeatherPage> {
 
   String getWeatherAnimation(String? mainCondition, bool? isDay) {
     if (mainCondition == null) {
-      return isDay == false ? 'assets/clearNight.json' : 'assets/clearDay.json';
+      return isDay == false
+          ? 'assets/lotties/clearNight.json'
+          : 'assets/lotties/clearDay.json';
     }
 
     final day = isDay ?? true;
 
     switch (mainCondition.toLowerCase()) {
       case 'clouds':
-        return day ? 'assets/cloudyDay.json' : 'assets/cloudyNight.json';
+        return day
+            ? 'assets/lotties/cloudyDay.json'
+            : 'assets/lotties/cloudyNight.json';
       case 'smoke':
       case 'haze':
       case 'dust':
@@ -61,18 +65,24 @@ class _WeatherPageState extends State<WeatherPage> {
       case 'ash':
       case 'squall':
       case 'Tornado':
-        return 'assets/mist.json';
+        return 'assets/lotties/mist.json';
       case 'rain':
       case 'drizzle':
-        return day ? 'assets/rainyDay.json' : 'assets/rainyNight.json';
+        return day
+            ? 'assets/lotties/rainyDay.json'
+            : 'assets/lotties/rainyNight.json';
       case 'thunderstorm':
-        return 'assets/storm.json';
+        return 'assets/lotties/storm.json';
       case 'snow':
-        return 'assets/snow.json';
+        return 'assets/lotties/snow.json';
       case 'clear':
-        return day ? 'assets/clearDay.json' : 'assets/clearNight.json';
+        return day
+            ? 'assets/lotties/clearDay.json'
+            : 'assets/lotties/clearNight.json';
       default:
-        return day ? 'assets/clearDay.json' : 'assets/clearNight.json';
+        return day
+            ? 'assets/lotties/clearDay.json'
+            : 'assets/lotties/clearNight.json';
     }
   }
 
