@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:weathix/models/weather_model.dart';
 import 'package:weathix/services/weather_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/cupertino.dart';
 
 class WeatherPage extends StatefulWidget {
   const WeatherPage({super.key});
@@ -94,14 +95,15 @@ class _WeatherPageState extends State<WeatherPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //city
-              Text(
-                _weather?.cityName.toUpperCase() ?? "Loading city..",
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                ),
+              Column(
+                children: [
+                  Icon(CupertinoIcons.location_solid, color: textColor),
+                  //city
+                  Text(
+                    _weather?.cityName.toUpperCase() ?? "Loading city..",
+                    style: TextStyle(color: textColor, fontSize: 38),
+                  ),
+                ],
               ),
 
               //Animation
@@ -112,11 +114,7 @@ class _WeatherPageState extends State<WeatherPage> {
               //temperature
               Text(
                 '${_weather?.temperature.round()}°',
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(color: textColor, fontSize: 48),
               ),
             ],
           ),
